@@ -13,5 +13,11 @@ public class UserService {
 	public User add(User reqUser) {
 		return userRepository.save(reqUser);
 	}
+	
+	public User findById(long id) {
+		return userRepository.findById(id).orElseThrow(()-> {
+			return new IllegalArgumentException(id + "의 유저는 존재하지 않습니다.");
+		});
+	}
 
 }
