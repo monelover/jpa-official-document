@@ -33,4 +33,8 @@ public class UserService {
 		//잘 안쓸듯..
 	}
 
+	public Boolean exist(long id) {
+		return userRepository.existsById(id);
+	}
+
 }

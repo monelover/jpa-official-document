@@ -38,4 +38,9 @@ public class UserController {
 		System.out.println("삭제");
 		userService.delete(reqUser);
 	}
+	@GetMapping("/user/exist/{id}")
+	public Boolean exist(@PathVariable long id) {
+		return userService.exist(id);
+	}
+	
 }
