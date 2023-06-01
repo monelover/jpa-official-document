@@ -1,5 +1,7 @@
 package com.example.demo.services;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -32,12 +34,14 @@ public class UserService {
 		userRepository.delete(reqUser);
 		//잘 안쓸듯..
 	}
-
 	public Boolean exist(long id) {
 		return userRepository.existsById(id);
 	}
 	public int countByLastName(String lastname) {
 		return userRepository.countByLastname(lastname);
 	}
-
+	public List<User> findDistinctUserByLastnameOrFirstname(User reqUser) {
+		return userRepository.findDistinctUserByLastnameOrFirstname(reqUser.getLastname(), reqUser.getFirstname());
+	}
+	// distinct, or,and... 등은 crudRepository에서 사용불가
 }

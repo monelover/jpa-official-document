@@ -1,6 +1,8 @@
 package com.example.demo.controllers;
 
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -47,5 +49,8 @@ public class UserController {
 	public int countLastname(@RequestParam String name) {
 		return userService.countByLastName(name);
 	}
-	
+	@GetMapping("/user/f_name")
+	public List<User> findDistinctUserByLastnameOrFirstname(@RequestBody User reqUser) {
+		return userService.findDistinctUserByLastnameOrFirstname(reqUser);
+	}
 }
