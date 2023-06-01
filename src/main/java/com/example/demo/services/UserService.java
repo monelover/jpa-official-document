@@ -24,4 +24,13 @@ public class UserService {
 		return userRepository.findAll();
 	}
 
+	public int count() {
+		return (int) userRepository.count();
+	}
+
+	public void delete(User reqUser) {
+		userRepository.delete(reqUser);
+		//잘 안쓸듯..
+	}
+
 }
