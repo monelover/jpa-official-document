@@ -19,5 +19,9 @@ public class UserService {
 			return new IllegalArgumentException(id + "의 유저는 존재하지 않습니다.");
 		});
 	}
+	
+	public Iterable<User> list() {
+		return userRepository.findAll();
+	}
 
 }
