@@ -36,5 +36,8 @@ public class UserService {
 	public Boolean exist(long id) {
 		return userRepository.existsById(id);
 	}
+	public int countByLastName(String lastname) {
+		return userRepository.countByLastname(lastname);
+	}
 
 }

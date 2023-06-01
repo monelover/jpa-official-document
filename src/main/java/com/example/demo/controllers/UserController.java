@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.demo.entities.User;
@@ -41,6 +42,10 @@ public class UserController {
 	@GetMapping("/user/exist/{id}")
 	public Boolean exist(@PathVariable long id) {
 		return userService.exist(id);
+	}
+	@GetMapping("/user/name_c")
+	public int countLastname(@RequestParam String name) {
+		return userService.countByLastName(name);
 	}
 	
 }
